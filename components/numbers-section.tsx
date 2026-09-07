@@ -42,7 +42,7 @@ export function NumbersSection() {
   return (
     <section
       id="numbers"
-      className="bg-navy-deep py-24 text-white lg:py-40"
+      className="bg-offwhite py-24 lg:py-40"
       aria-labelledby="numbers-heading"
     >
       <div className="mx-auto max-w-[1280px] px-5 lg:px-8">
@@ -50,14 +50,14 @@ export function NumbersSection() {
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-7">
             <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-cyan" />
-              <span className="text-[12px] font-bold tracking-[0.28em] text-cyan">
+              <span className="h-px w-8 bg-blue" />
+              <span className="text-[12px] font-bold tracking-[0.28em] text-blue">
                 NUMBERS / SMS DATA
               </span>
             </div>
             <h2
               id="numbers-heading"
-              className="mt-6 text-[clamp(1.9rem,4vw,3.5rem)] font-black leading-[1.22] tracking-tight text-white"
+              className="mt-6 text-[clamp(1.9rem,4vw,3.5rem)] font-black leading-[1.22] tracking-tight text-navy-deep"
             >
               <span className="block">
                 数字で見る、
@@ -70,7 +70,7 @@ export function NumbersSection() {
             </h2>
           </Reveal>
           <Reveal className="lg:col-span-5" delay={120}>
-            <p className="text-pretty text-lg leading-relaxed text-white/60">
+            <p className="text-pretty text-lg leading-relaxed text-ink-soft">
               産廃業務を支えてきた実績を、数字でご紹介します。
             </p>
           </Reveal>
@@ -85,7 +85,7 @@ export function NumbersSection() {
               className={[
                 'relative min-w-0 px-0 sm:px-8 lg:px-10',
                 // thin dividers between items
-                i > 0 ? 'sm:border-l sm:border-white/10' : '',
+                i > 0 ? 'sm:border-l sm:border-navy/10' : '',
                 'sm:first:pl-0',
               ].join(' ')}
             >
@@ -93,36 +93,36 @@ export function NumbersSection() {
                 <span className="font-mono text-[11px] font-bold tracking-[0.28em] text-blue">
                   {stat.no}
                 </span>
-                <span className="h-px w-6 bg-white/20" />
+                <span className="h-px w-6 bg-navy/15" />
               </div>
 
               {stat.comingSoon ? (
                 <div className="mt-5 flex min-h-[clamp(3.25rem,5vw,4.25rem)] items-baseline">
-                  <span className="text-[clamp(1.6rem,2.6vw,2.4rem)] font-black leading-none tracking-tight text-white/30">
+                  <span className="text-[clamp(1.6rem,2.6vw,2.4rem)] font-black leading-none tracking-tight text-ink-soft/50">
                     調査中
                   </span>
                 </div>
               ) : (
                 <div className="mt-5 flex items-baseline whitespace-nowrap">
-                  <span className="text-[clamp(3.25rem,5vw,4.75rem)] font-black leading-none tracking-tight tabular-nums text-white">
+                  <span className="text-[clamp(3.25rem,5vw,4.75rem)] font-black leading-none tracking-tight tabular-nums text-navy-deep">
                     {stat.value}
                   </span>
                   {stat.suffix && (
-                    <span className="ml-1.5 text-[clamp(1.5rem,2.5vw,2.25rem)] font-black leading-none tracking-tight text-cyan">
+                    <span className="ml-1.5 text-[clamp(1.5rem,2.5vw,2.25rem)] font-black leading-none tracking-tight text-blue">
                       {stat.suffix}
                     </span>
                   )}
                 </div>
               )}
 
-              <p className="mt-6 font-mono text-[10px] font-bold tracking-[0.28em] text-white/40">
+              <p className="mt-6 font-mono text-[10px] font-bold tracking-[0.28em] text-ink-soft">
                 {stat.labelEn}
               </p>
-              <p className="mt-2 text-pretty text-[15px] font-medium leading-relaxed text-white/80">
+              <p className="mt-2 text-pretty text-[15px] font-medium leading-relaxed text-ink">
                 {stat.label}
               </p>
               {stat.comingSoon && (
-                <p className="mt-2 text-[12px] leading-relaxed text-white/35">
+                <p className="mt-2 text-[12px] leading-relaxed text-ink-soft/70">
                   ※ 後日、実際のマニフェスト管理実績などの数値に差し替え予定です。
                 </p>
               )}

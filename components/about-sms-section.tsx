@@ -63,14 +63,14 @@ export function AboutSmsSection() {
 
         {/* Brand story statement — Deep Navy panel */}
         <Reveal delay={80}>
-          <div className="mt-16 overflow-hidden rounded-2xl bg-navy-deep px-6 py-16 lg:mt-24 lg:px-16 lg:py-24">
+          <div className="mt-16 overflow-hidden rounded-2xl border border-navy/10 bg-offwhite px-6 py-16 lg:mt-24 lg:px-16 lg:py-24">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-7">
                 {PILLARS.map((p, i) => {
                   const isLast = i === PILLARS.length - 1
                   return (
                     <Reveal key={p.no} delay={200 + i * 220}>
-                      <p className="text-[clamp(2rem,5.5vw,4rem)] font-black leading-[1.18] tracking-tight text-white">
+                      <p className="text-[clamp(2rem,5.5vw,4rem)] font-black leading-[1.18] tracking-tight text-navy-deep">
                         {isLast ? (
                           <span className="relative whitespace-nowrap">
                             {p.ja}
@@ -86,8 +86,8 @@ export function AboutSmsSection() {
               </div>
               <Reveal className="lg:col-span-5 lg:self-end" delay={200 + PILLARS.length * 220}>
                 <div className="flex items-start gap-4">
-                  <span className="mt-2 h-px w-8 shrink-0 bg-cyan" />
-                  <p className="text-pretty text-[15px] leading-relaxed text-white/70 lg:text-base">
+                  <span className="mt-2 h-px w-8 shrink-0 bg-blue" />
+                  <p className="text-pretty text-[15px] leading-relaxed text-ink-soft lg:text-base">
                     私たちは、単なるIT会社ではありません。産廃業務を理解しているからこそ、現場に寄り添ったDXを支えられます。
                   </p>
                 </div>
