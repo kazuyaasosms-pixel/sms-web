@@ -30,6 +30,7 @@ const STRENGTHS = [
 export function FeatureSection() {
   return (
     <section
+      id="feature"
       className="bg-background py-24 lg:py-40"
       aria-labelledby="feature-heading"
     >

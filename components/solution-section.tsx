@@ -19,7 +19,7 @@ const SHIFTS = [
 
 export function SolutionSection() {
   return (
-    <section className="bg-background py-24 lg:py-40" aria-labelledby="solution-heading">
+    <section id="solution" className="bg-background py-24 lg:py-40" aria-labelledby="solution-heading">
       <div className="mx-auto max-w-[1280px] px-5 lg:px-8">
         {/* Section head */}
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-12">

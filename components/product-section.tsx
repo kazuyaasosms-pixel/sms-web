@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+import { CTA_LINKS } from '@/lib/site-links'
 
 const DOMAINS = [
   { label: 'MANIFEST', ja: '電子マニフェスト・管理' },
@@ -39,7 +40,7 @@ const PRODUCTS = [
 
 export function ProductSection() {
   return (
-    <section className="bg-offwhite py-24 lg:py-40" aria-labelledby="product-heading">
+    <section id="product" className="bg-offwhite py-24 lg:py-40" aria-labelledby="product-heading">
       <div className="mx-auto max-w-[1280px] px-5 lg:px-8">
         {/* Section head */}
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-12">
@@ -114,7 +115,7 @@ export function ProductSection() {
                 </p>
               </div>
               <a
-                href="#"
+                href={CTA_LINKS.aboutDetail ?? '#product'}
                 className="group/link mt-10 inline-flex items-center gap-2 text-[15px] font-bold text-cyan"
               >
                 詳しく見る
@@ -144,7 +145,7 @@ export function ProductSection() {
         {/* CTA */}
         <Reveal className="mt-16 flex justify-center lg:mt-24">
           <a
-            href="#"
+            href={CTA_LINKS.contact ?? '#final-cta'}
             className="group flex h-14 items-center justify-center gap-2 rounded-full bg-blue px-8 text-[15px] font-bold text-white shadow-[0_10px_30px_rgba(22,119,255,0.3)] transition-all hover:bg-navy-deep hover:shadow-[0_10px_30px_rgba(7,26,51,0.3)]"
           >
             あなたの会社に合ったソリューションを見る
@@ -179,7 +180,7 @@ function ProductCard({
         <p className="mt-4 text-pretty leading-relaxed text-ink-soft">{product.desc}</p>
       </div>
       <a
-        href="#"
+        href={CTA_LINKS.aboutDetail ?? '#product'}
         className="group/link mt-8 inline-flex items-center gap-2 text-[15px] font-bold text-blue"
       >
         詳しく見る

@@ -1,11 +1,12 @@
 import { ArrowRight, ArrowDown } from 'lucide-react'
+import { CTA_LINKS } from '@/lib/site-links'
 
 const HERO_IMG =
   'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/01_hero_main-TnSQgix2jABMKtYMDOtxy8gR4An6aw.jpeg'
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-[72px]">
+    <section id="hero" className="relative overflow-hidden bg-white pt-[72px]">
       <div className="mx-auto grid min-h-[calc(100svh-72px)] w-full max-w-[1920px] grid-cols-1 items-stretch lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
         {/* Text column */}
         <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:py-20 lg:pl-[max(2.5rem,calc((100vw-1600px)/2+2.5rem))] lg:pr-[clamp(2.5rem,4vw,5rem)]">
@@ -38,14 +39,14 @@ export function Hero() {
 
             <div className="mt-10 flex flex-col gap-3 opacity-0 [animation:fade-up_0.9s_0.54s_forwards] sm:flex-row sm:items-center motion-reduce:opacity-100">
               <a
-                href="#"
+                href="#solution"
                 className="group flex h-14 items-center justify-center gap-2 rounded-full bg-blue px-8 text-[15px] font-bold text-white shadow-[0_10px_30px_rgba(22,119,255,0.3)] transition-all hover:bg-navy-deep hover:shadow-[0_10px_30px_rgba(7,26,51,0.3)]"
               >
                 産廃DXを見る
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#"
+                href={CTA_LINKS.documentDownload ?? '#final-cta'}
                 className="flex h-14 items-center justify-center rounded-full border border-navy/20 bg-white px-8 text-[15px] font-bold text-navy transition-colors hover:border-navy hover:bg-offwhite"
               >
                 資料ダウンロード

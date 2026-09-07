@@ -9,6 +9,12 @@ import { FieldMobileSection } from '@/components/field-mobile-section'
 import { CaseStudySection } from '@/components/case-study-section'
 import { NumbersSection } from '@/components/numbers-section'
 import { WhySmsSection } from '@/components/why-sms-section'
+import { NewsSection } from '@/components/news-section'
+import { ColumnSection } from '@/components/column-section'
+import { AboutSmsSection } from '@/components/about-sms-section'
+import { FaqSection } from '@/components/faq-section'
+import { FinalCtaSection } from '@/components/final-cta-section'
+import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
   return (
@@ -25,7 +31,13 @@ export default function Page() {
         <CaseStudySection />
         <NumbersSection />
         <WhySmsSection />
+        <NewsSection />
+        <ColumnSection />
+        <AboutSmsSection />
+        <FaqSection />
+        <FinalCtaSection />
       </main>
+      <SiteFooter />
     </>
   )
 }

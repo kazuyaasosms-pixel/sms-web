@@ -27,6 +27,7 @@ const STEPS = [
 export function FieldMobileSection() {
   return (
     <section
+      id="field"
       className="bg-offwhite py-24 lg:py-40"
       aria-labelledby="field-mobile-heading"
     >

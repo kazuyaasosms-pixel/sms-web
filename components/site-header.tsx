@@ -3,15 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-const NAV = [
-  { label: '製品・サービス', href: '#' },
-  { label: '産廃DXとは', href: '#' },
-  { label: '導入事例', href: '#' },
-  { label: 'SMSが選ばれる理由', href: '#' },
-  { label: 'お知らせ', href: '#' },
-  { label: 'SMSについて', href: '#' },
-]
+import { NAV_LINKS, CTA_LINKS } from '@/lib/site-links'
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -34,7 +26,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-5 lg:px-8">
         {/* Logo */}
         <a
-          href="#"
+          href="#hero"
           className={cn(
             'flex shrink-0 items-center gap-2.5 transition-all duration-300',
             scrolled ? 'h-14' : 'h-[72px]',
@@ -52,7 +44,7 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-7 xl:flex" aria-label="メインナビゲーション">
-          {NAV.map((item) => (
+          {NAV_LINKS.map((item) => (
             <a
               key={item.label}
               href={item.href}
@@ -66,13 +58,13 @@ export function SiteHeader() {
         {/* CTAs */}
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="#"
+            href={CTA_LINKS.documentDownload ?? '#final-cta'}
             className="flex h-11 items-center rounded-full border border-navy/20 px-5 text-[13px] font-bold text-navy transition-colors hover:border-navy hover:bg-offwhite"
           >
             資料ダウンロード
           </a>
           <a
-            href="#"
+            href={CTA_LINKS.contact ?? '#final-cta'}
             className="flex h-11 items-center rounded-full bg-blue px-6 text-[13px] font-bold text-white shadow-[0_6px_18px_rgba(22,119,255,0.28)] transition-colors hover:bg-navy"
           >
             お問い合わせ
@@ -100,7 +92,7 @@ export function SiteHeader() {
         style={{ transition: 'max-height 0.4s ease' }}
       >
         <nav className="flex flex-col gap-1 px-5 py-4" aria-label="モバイルナビゲーション">
-          {NAV.map((item) => (
+          {NAV_LINKS.map((item) => (
             <a
               key={item.label}
               href={item.href}
@@ -112,13 +104,13 @@ export function SiteHeader() {
           ))}
           <div className="mt-3 flex flex-col gap-2.5">
             <a
-              href="#"
+              href={CTA_LINKS.documentDownload ?? '#final-cta'}
               className="flex h-12 items-center justify-center rounded-full border border-navy/20 text-sm font-bold text-navy"
             >
               資料ダウンロード
             </a>
             <a
-              href="#"
+              href={CTA_LINKS.contact ?? '#final-cta'}
               className="flex h-12 items-center justify-center rounded-full bg-blue text-sm font-bold text-white"
             >
               お問い合わせ

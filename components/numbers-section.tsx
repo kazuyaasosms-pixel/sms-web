@@ -41,6 +41,7 @@ const STATS: StatItem[] = [
 export function NumbersSection() {
   return (
     <section
+      id="numbers"
       className="bg-navy-deep py-24 text-white lg:py-40"
       aria-labelledby="numbers-heading"
     >

@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+import { CTA_LINKS } from '@/lib/site-links'
 
 interface CaseItem {
   no: string
@@ -69,7 +70,7 @@ const CASES: CaseItem[] = [
 
 export function CaseStudySection() {
   return (
-    <section className="bg-background py-24 lg:py-40" aria-labelledby="case-study-heading">
+    <section id="case-study" className="bg-background py-24 lg:py-40" aria-labelledby="case-study-heading">
       <div className="mx-auto max-w-[1280px] px-5 lg:px-8">
         {/* Section head */}
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-12">
@@ -227,7 +228,7 @@ export function CaseStudySection() {
               ※ 掲載する導入事例は順次追加予定です。
             </p>
             <a
-              href="#"
+              href={CTA_LINKS.aboutDetail ?? '#case-study'}
               className="group flex h-14 items-center justify-center gap-2 rounded-full bg-blue px-8 text-[15px] font-bold text-white shadow-[0_10px_30px_rgba(22,119,255,0.3)] transition-all hover:bg-navy-deep hover:shadow-[0_10px_30px_rgba(7,26,51,0.3)]"
             >
               導入事例をもっと見る
