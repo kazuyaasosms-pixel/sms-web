@@ -3,3 +3,11 @@
 {"timestamp":"00:02:09.991","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
 {"timestamp":"00:16:51.668","source":"Server","level":"LOG","message":"✓ Compiled in 57ms"}
 {"timestamp":"00:17:26.126","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:18:12.813","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:18:15.386","source":"Server","level":"LOG","message":"  Reload env: .env.development.local"}
+{"timestamp":"00:19:09.891","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:20:02.813","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:26:51.360","source":"Server","level":"LOG","message":"✓ Compiled in 102ms"}
+{"timestamp":"00:28:35.777","source":"Server","level":"LOG","message":"✓ Compiled in 77ms"}
+{"timestamp":"00:28:45.042","source":"Server","level":"LOG","message":"✓ Compiled in 52ms"}
+{"timestamp":"00:28:52.768","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}

@@ -99,24 +99,24 @@ export function ProductSection() {
         <div className="mt-10 grid grid-cols-1 gap-6 lg:mt-14 lg:grid-cols-12">
           {/* Flagship */}
           <Reveal className="lg:col-span-7">
-            <article className="group flex h-full flex-col justify-between rounded-2xl bg-navy-deep p-8 text-white lg:p-12">
+            <article className="group flex h-full flex-col justify-between rounded-2xl border border-blue/20 bg-lightblue p-8 lg:p-12">
               <div>
                 <div className="flex items-center gap-3">
-                  <span className="h-px w-6 bg-cyan" />
-                  <span className="font-mono text-[11px] font-bold tracking-[0.28em] text-cyan">
+                  <span className="h-px w-6 bg-blue" />
+                  <span className="font-mono text-[11px] font-bold tracking-[0.28em] text-blue">
                     {FLAGSHIP.domain}
                   </span>
                 </div>
-                <h3 className="mt-6 text-[clamp(2rem,3.4vw,3rem)] font-black leading-tight tracking-tight">
+                <h3 className="mt-6 text-[clamp(2rem,3.4vw,3rem)] font-black leading-tight tracking-tight text-navy-deep">
                   {FLAGSHIP.name}
                 </h3>
-                <p className="mt-5 max-w-md text-pretty leading-relaxed text-white/70">
+                <p className="mt-5 max-w-md text-pretty leading-relaxed text-ink-muted">
                   {FLAGSHIP.desc}
                 </p>
               </div>
               <a
                 href={CTA_LINKS.aboutDetail ?? '#product'}
-                className="group/link mt-10 inline-flex items-center gap-2 text-[15px] font-bold text-cyan"
+                className="group/link mt-10 inline-flex items-center gap-2 text-[15px] font-bold text-blue"
               >
                 詳しく見る
                 <ArrowRight
