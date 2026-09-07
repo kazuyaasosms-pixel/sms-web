@@ -11,3 +11,6 @@
 {"timestamp":"00:28:35.777","source":"Server","level":"LOG","message":"✓ Compiled in 77ms"}
 {"timestamp":"00:28:45.042","source":"Server","level":"LOG","message":"✓ Compiled in 52ms"}
 {"timestamp":"00:28:52.768","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:29:52.587","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:30:02.910","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:30:04.889","source":"Server","level":"LOG","message":"  Reload env: .env.development.local"}
