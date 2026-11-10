@@ -8,7 +8,7 @@ import { FeatureSection } from '@/components/feature-section'
 import { FieldMobileSection } from '@/components/field-mobile-section'
 import { CaseStudySection } from '@/components/case-study-section'
 import { NumbersSection } from '@/components/numbers-section'
-import { WhySmsSection } from '@/components/why-sms-section'
+import { SupportSection } from '@/components/support-section'
 import { NewsSection } from '@/components/news-section'
 import { ColumnSection } from '@/components/column-section'
 import { AboutSmsSection } from '@/components/about-sms-section'
@@ -30,7 +30,7 @@ export default function Page() {
         <FieldMobileSection />
         <CaseStudySection />
         <NumbersSection />
-        <WhySmsSection />
+        <SupportSection />
         <NewsSection />
         <ColumnSection />
         <AboutSmsSection />

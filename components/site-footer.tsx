@@ -13,30 +13,12 @@ export function SiteFooter() {
                 <img src="/logo.png" alt="株式会社エスエムエス" className="h-full w-full object-contain" />
               </span>
               <span className="text-[11px] font-medium tracking-widest text-white/50">
-                産廃DX
+                エスエムエス
               </span>
             </a>
             <p className="mt-6 max-w-xs text-pretty text-sm leading-relaxed text-white/50">
               現場を知る、産廃DXパートナー。紙と残業から、現場を解放する。
             </p>
-            <div className="mt-8 text-[13px] leading-relaxed text-white/50">
-              <a
-                href={COMPANY_INFO.profileUrl}
-                {...linkProps(COMPANY_INFO.profileUrl)}
-                className="font-bold text-white/80 transition-colors hover:text-white"
-              >
-                {COMPANY_INFO.name}
-              </a>
-              <ul className="mt-3 flex flex-col gap-3">
-                {COMPANY_INFO.offices.map((o) => (
-                  <li key={o.label}>
-                    <span className="block text-white/70">{o.label}</span>
-                    <span className="block">{o.address}</span>
-                    <span className="block">TEL {o.tel}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           {/* Link groups */}
@@ -63,8 +45,28 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Company info */}
+        <div className="mt-16 border-t border-white/10 pt-10">
+          <a
+            href={COMPANY_INFO.profileUrl}
+            {...linkProps(COMPANY_INFO.profileUrl)}
+            className="text-sm font-bold text-white/80 transition-colors hover:text-white"
+          >
+            {COMPANY_INFO.name}
+          </a>
+          <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 text-[13px] leading-relaxed text-white/50 sm:grid-cols-2 lg:grid-cols-3">
+            {COMPANY_INFO.offices.map((o) => (
+              <li key={o.label}>
+                <span className="block font-medium text-white/70">{o.label}</span>
+                <span className="block">{o.address}</span>
+                <span className="block">TEL {o.tel}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Bottom: legal + copyright */}
-        <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {FOOTER_LEGAL_LINKS.map((link) => (
               <a

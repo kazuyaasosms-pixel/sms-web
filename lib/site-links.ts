@@ -74,6 +74,7 @@ export const FOOTER_LINKS: FooterGroup[] = [
     links: [
       { label: 'SMSについて', href: '#about' },
       { label: '数字で見るSMS', href: '#numbers' },
+      { label: '全国の拠点・サポート', href: '#support' },
       { label: 'お知らせ', href: '#news' },
     ],
   },
@@ -102,5 +103,13 @@ export const COMPANY_INFO = {
       address: '東京都中央区東日本橋2丁目27-24 イクソン日本橋ビル3F',
       tel: '03-5809-3760',
     },
+    { label: '神奈川営業所', address: '神奈川県大和市桜森2-3-15 三井ビル101', tel: '046-244-5151' },
+    { label: '北海道支店', address: '北海道札幌市北区新琴似6条12丁目2-25', tel: '011-765-8626' },
+    {
+      label: '宮城支店',
+      address: '宮城県大崎市古川台町3番24号 パルタウン台町101',
+      tel: '0229-91-0935',
+    },
+    { label: '愛知支店', address: '愛知県江南市飛高町本町113番地', tel: '0587-54-5360' },
   ],
 }

@@ -117,19 +117,6 @@ export function FeatureSection() {
             )
           })}
         </div>
-
-        {/* Closing message: bridge to WHY SMS */}
-        <Reveal className="mt-24 lg:mt-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-pretty text-[clamp(1.25rem,2.2vw,1.9rem)] font-bold leading-relaxed tracking-tight text-navy-deep">
-              私たちは、単なるIT会社ではありません。
-              <br className="hidden sm:block" />
-              産廃業務を理解しているからこそ、
-              <span className="text-blue">現場に寄り添ったDX</span>
-              を支えられます。
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   )

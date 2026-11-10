@@ -39,7 +39,7 @@ export function SiteHeader() {
             className={cn('w-auto transition-all duration-300', scrolled ? 'h-9' : 'h-11')}
           />
           <span className="hidden text-[11px] font-medium tracking-widest text-ink-soft sm:inline">
-            産廃DX
+            エスエムエス
           </span>
         </a>
 
