@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   description:
     '産業廃棄物業務を、もっとシンプルに。もっとスマートに。現場を知る産廃DXパートナーSMSが、紙・電話・Excelの手作業を減らし、収集運搬・処理・リサイクル業務の効率化を実現します。',
   generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/icon.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: '/apple-icon.png',
+  },
 }
 
 export const viewport: Viewport = {

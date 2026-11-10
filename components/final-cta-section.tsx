@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { CTA_LINKS } from '@/lib/site-links'
+import { CTA_LINKS, linkProps } from '@/lib/site-links'
 
 export function FinalCtaSection() {
   return (
@@ -50,10 +50,11 @@ export function FinalCtaSection() {
 
             <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href={CTA_LINKS.documentDownload ?? '#final-cta'}
+                href={CTA_LINKS.productLineup ?? '#product'}
+                {...linkProps(CTA_LINKS.productLineup ?? '#product')}
                 className="group flex h-14 items-center justify-center gap-2 rounded-full bg-blue px-8 text-[15px] font-bold text-white shadow-[0_10px_30px_rgba(22,119,255,0.3)] transition-all hover:bg-cyan hover:shadow-[0_10px_30px_rgba(0,184,217,0.3)]"
               >
-                資料ダウンロード
+                製品ラインナップ
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
@@ -61,6 +62,7 @@ export function FinalCtaSection() {
               </a>
               <a
                 href={CTA_LINKS.contact ?? '#final-cta'}
+                {...linkProps(CTA_LINKS.contact ?? '#final-cta')}
                 className="flex h-14 items-center justify-center rounded-full border border-white/20 bg-transparent px-8 text-[15px] font-bold text-white transition-colors hover:border-white hover:bg-white/10"
               >
                 お問い合わせ

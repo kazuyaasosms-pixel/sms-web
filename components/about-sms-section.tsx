@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { CTA_LINKS } from '@/lib/site-links'
+import { CTA_LINKS, linkProps } from '@/lib/site-links'
 
 const PILLARS = [
   {
@@ -134,7 +134,8 @@ export function AboutSmsSection() {
         {/* CTA */}
         <Reveal className="mt-16 flex justify-center lg:mt-24">
           <a
-            href={CTA_LINKS.aboutDetail ?? '#about'}
+            href={CTA_LINKS.companyDetail ?? '#about'}
+            {...linkProps(CTA_LINKS.companyDetail ?? '#about')}
             className="group flex h-14 items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 text-[15px] font-bold text-navy transition-colors hover:border-navy hover:bg-offwhite"
           >
             SMSについて詳しく見る

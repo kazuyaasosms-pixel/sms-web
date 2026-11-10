@@ -1,4 +1,4 @@
-import { FOOTER_LINKS, FOOTER_LEGAL_LINKS } from '@/lib/site-links'
+import { FOOTER_LINKS, FOOTER_LEGAL_LINKS, COMPANY_INFO, linkProps } from '@/lib/site-links'
 
 export function SiteFooter() {
   return (
@@ -9,10 +9,9 @@ export function SiteFooter() {
           {/* Logo + tagline */}
           <div className="lg:col-span-4">
             <a href="#hero" className="flex items-center gap-2.5" aria-label="SMS ホーム">
-              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-white">
-                <span className="h-3.5 w-3.5 rounded-[3px] bg-cyan" />
+              <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-white p-1">
+                <img src="/logo.png" alt="株式会社エスエムエス" className="h-full w-full object-contain" />
               </span>
-              <span className="text-xl font-black tracking-tight text-white">SMS</span>
               <span className="text-[11px] font-medium tracking-widest text-white/50">
                 産廃DX
               </span>
@@ -20,6 +19,24 @@ export function SiteFooter() {
             <p className="mt-6 max-w-xs text-pretty text-sm leading-relaxed text-white/50">
               現場を知る、産廃DXパートナー。紙と残業から、現場を解放する。
             </p>
+            <div className="mt-8 text-[13px] leading-relaxed text-white/50">
+              <a
+                href={COMPANY_INFO.profileUrl}
+                {...linkProps(COMPANY_INFO.profileUrl)}
+                className="font-bold text-white/80 transition-colors hover:text-white"
+              >
+                {COMPANY_INFO.name}
+              </a>
+              <ul className="mt-3 flex flex-col gap-3">
+                {COMPANY_INFO.offices.map((o) => (
+                  <li key={o.label}>
+                    <span className="block text-white/70">{o.label}</span>
+                    <span className="block">{o.address}</span>
+                    <span className="block">TEL {o.tel}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Link groups */}
@@ -60,7 +77,7 @@ export function SiteFooter() {
             ))}
           </div>
           <p className="text-[13px] text-white/40">
-            &copy; {new Date().getFullYear()} SMS. All Rights Reserved.
+            &copy; {new Date().getFullYear()} {COMPANY_INFO.name}. All Rights Reserved.
           </p>
         </div>
       </div>

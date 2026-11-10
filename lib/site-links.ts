@@ -29,7 +29,12 @@ export const NAV_LINKS: NavLink[] = [
  * so we never link to a non-existent page.
  */
 export const CTA_LINKS = {
-  contact: null as string | null,
+  /** お問い合わせ（暫定: sanpai.com のお問合せフォーム。専用フォームを作る場合はここを差し替え） */
+  contact: 'https://www.sanpai.com/support/new_form.html' as string | null,
+  /** 旧「資料ダウンロード」ボタン → 「製品ラインナップ」へ変更 */
+  productLineup: 'https://www.sanpai.com/soft/index.html' as string | null,
+  /** 「SMSについて詳しく見る」→ 株式会社エスエムエス 会社サイト */
+  companyDetail: 'https://www.sms-corp.net/index.html' as string | null,
   documentDownload: null as string | null,
   aboutDetail: null as string | null,
   newsDetail: null as string | null,
@@ -81,3 +86,21 @@ export const FOOTER_LEGAL_LINKS: NavLink[] = [
   { label: 'プライバシーポリシー', href: '#' },
   { label: '利用規約', href: '#' },
 ]
+
+/** 外部URLのときだけ新しいタブで開く設定を返す */
+export const linkProps = (href: string) =>
+  href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+
+/** フッターに表示する会社情報 */
+export const COMPANY_INFO = {
+  name: '株式会社エスエムエス',
+  profileUrl: 'https://www.sms-corp.net/company/001.html',
+  offices: [
+    { label: '本社', address: '和歌山県和歌山市中之島255番地8', tel: '073-488-3400' },
+    {
+      label: '東京支店',
+      address: '東京都中央区東日本橋2丁目27-24 イクソン日本橋ビル3F',
+      tel: '03-5809-3760',
+    },
+  ],
+}

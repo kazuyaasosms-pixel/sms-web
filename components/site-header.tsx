@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { NAV_LINKS, CTA_LINKS } from '@/lib/site-links'
+import { NAV_LINKS, CTA_LINKS, linkProps } from '@/lib/site-links'
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -33,10 +33,11 @@ export function SiteHeader() {
           )}
           aria-label="SMS ホーム"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-navy-deep">
-            <span className="h-3.5 w-3.5 rounded-[3px] bg-cyan" />
-          </span>
-          <span className="text-xl font-black tracking-tight text-navy-deep">SMS</span>
+          <img
+            src="/logo.png"
+            alt="株式会社エスエムエス"
+            className={cn('w-auto transition-all duration-300', scrolled ? 'h-9' : 'h-11')}
+          />
           <span className="hidden text-[11px] font-medium tracking-widest text-ink-soft sm:inline">
             産廃DX
           </span>
@@ -58,13 +59,15 @@ export function SiteHeader() {
         {/* CTAs */}
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href={CTA_LINKS.documentDownload ?? '#final-cta'}
+            href={CTA_LINKS.productLineup ?? '#product'}
+            {...linkProps(CTA_LINKS.productLineup ?? '#product')}
             className="flex h-11 items-center rounded-full border border-navy/20 px-5 text-[13px] font-bold text-navy transition-colors hover:border-navy hover:bg-offwhite"
           >
-            資料ダウンロード
+            製品ラインナップ
           </a>
           <a
             href={CTA_LINKS.contact ?? '#final-cta'}
+            {...linkProps(CTA_LINKS.contact ?? '#final-cta')}
             className="flex h-11 items-center rounded-full bg-blue px-6 text-[13px] font-bold text-white shadow-[0_6px_18px_rgba(22,119,255,0.28)] transition-colors hover:bg-navy"
           >
             お問い合わせ
@@ -104,13 +107,15 @@ export function SiteHeader() {
           ))}
           <div className="mt-3 flex flex-col gap-2.5">
             <a
-              href={CTA_LINKS.documentDownload ?? '#final-cta'}
+              href={CTA_LINKS.productLineup ?? '#product'}
+              {...linkProps(CTA_LINKS.productLineup ?? '#product')}
               className="flex h-12 items-center justify-center rounded-full border border-navy/20 text-sm font-bold text-navy"
             >
-              資料ダウンロード
+              製品ラインナップ
             </a>
             <a
               href={CTA_LINKS.contact ?? '#final-cta'}
+              {...linkProps(CTA_LINKS.contact ?? '#final-cta')}
               className="flex h-12 items-center justify-center rounded-full bg-blue text-sm font-bold text-white"
             >
               お問い合わせ

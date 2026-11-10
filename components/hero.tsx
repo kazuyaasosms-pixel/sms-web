@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowDown } from 'lucide-react'
-import { CTA_LINKS } from '@/lib/site-links'
+import { CTA_LINKS, linkProps } from '@/lib/site-links'
 
 const HERO_IMG =
   'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/01_hero_main-TnSQgix2jABMKtYMDOtxy8gR4An6aw.jpeg'
@@ -46,10 +46,11 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href={CTA_LINKS.documentDownload ?? '#final-cta'}
+                href={CTA_LINKS.productLineup ?? '#product'}
+                {...linkProps(CTA_LINKS.productLineup ?? '#product')}
                 className="flex h-14 items-center justify-center rounded-full border border-navy/20 bg-white px-8 text-[15px] font-bold text-navy transition-colors hover:border-navy hover:bg-offwhite"
               >
-                資料ダウンロード
+                製品ラインナップ
               </a>
             </div>
           </div>
