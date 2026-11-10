@@ -60,7 +60,7 @@ export function Hero() {
           <img
             src={HERO_IMG || '/placeholder.svg'}
             alt="タブレットを手に現場に立つ、ヘルメット姿のSMS担当者。背景に産業廃棄物運搬トラックとコンテナ。"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className="absolute inset-0 h-full w-full object-cover object-[center_top]"
           />
           {/* soft blend into text column on desktop */}
           <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-white to-transparent lg:block" />
