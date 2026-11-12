@@ -166,10 +166,11 @@ export function SupportChat() {
 
             {showPhone && (
               <div className="ml-9 mt-4 rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                <p className="text-center text-xs font-medium text-slate-600">受付：平日9:00〜17:00</p>
-                <a href="tel:0000000000" className="mt-3 flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-[#0b2d50] px-4 py-3 text-base font-bold text-white shadow-sm transition hover:bg-[#12436e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2d50]">
+                <p className="text-center text-xs font-medium text-slate-600">受付時間：9:00〜17:00</p>
+                <p className="mt-1 text-center text-xs font-medium text-slate-600">サポートセンター</p>
+                <a href="tel:0734884008" className="mt-3 flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-[#0b2d50] px-4 py-3 text-base font-bold text-white shadow-sm transition hover:bg-[#12436e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2d50]">
                   <Phone aria-hidden="true" className="size-5" />
-                  000-0000-0000
+                  TEL:073-488-4008
                 </a>
               </div>
             )}
