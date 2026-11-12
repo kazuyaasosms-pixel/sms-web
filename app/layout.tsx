@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
+import { SupportChat } from '@/components/support-chat'
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="ja" className={`light ${notoSansJP.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
+        <SupportChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
