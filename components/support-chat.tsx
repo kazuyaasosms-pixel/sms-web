@@ -23,6 +23,30 @@ type TroubleGuide = {
 }
 
 const videoListUrl = 'https://www.sanpai.com/soft/sms_movie.html'
+const videoUrls: Record<string, string> = {
+  'マニフェストの印刷方法': 'https://www.youtube.com/watch?v=Ww-aIw0o4Iw',
+  'fit7450 単票印刷方法': 'https://www.youtube.com/watch?v=obSguQelJW0',
+  'fit7450 連帳印刷方法': 'https://www.youtube.com/watch?v=GCesYEMbxmc',
+  '突然ソフトが動かなくなった時の対処法': 'https://www.youtube.com/watch?v=4CUZU0OTJZk',
+  '初回起動時ログインパスワードと変更方法': 'https://www.youtube.com/watch?v=pWHwfF5oXFI',
+  'USBライセンス認証から、WEBライセンス認証へ切り替える方法について': 'https://www.youtube.com/watch?v=atlQwhfLHck',
+  'デイリーバックアップ設定方法': 'https://www.youtube.com/watch?v=rsfQFvbkER8',
+  '自動バックアップの設定方法/メイン機のみ': 'https://www.youtube.com/watch?v=Ml7s0m9xTDA',
+  '手動バックアップの取り方': 'https://www.youtube.com/watch?v=9LyLA6h2yOY',
+  'クラウドバックアップ設定方法': 'https://www.youtube.com/watch?v=52GdOlThFo4',
+  'ディリークラウドバックアップの設定について': videoListUrl,
+  'マニフェストの登録方法（基礎編）': 'https://www.youtube.com/watch?v=fzqSkYrPnC4',
+  'マニフェストの登録方法（応用編）': 'https://www.youtube.com/watch?v=2i4xcgZiTU0',
+  'マニフェスト入力保存時のエラー対処法': 'https://www.youtube.com/watch?v=mNo6tN_Snl8',
+  '産廃キング請求書と残高一覧表で差額が出る事例の説明': 'https://www.youtube.com/watch?v=urbuB6YQ1Fg',
+  '請求書を普段の締日より早く集計する方法': 'https://www.youtube.com/watch?v=iiJk8VMAmLA',
+  '請求月を設定する方法': 'https://www.youtube.com/watch?v=LhNR7NH8oAQ',
+  '年次報告書の作成方法（作成編）': 'https://www.youtube.com/watch?v=TSaBKFZrIVM',
+  '年次報告書の作成方法（マスター整備編）': 'https://www.youtube.com/watch?v=t45FmlMgUMs',
+  '年次報告書の作成方法（環境設定編）': 'https://www.youtube.com/watch?v=1zuYQ0FvCk0',
+  '年次報告書の作成方法（失敗時の対処編）': 'https://www.youtube.com/watch?v=J7g_DYh44Jk',
+  'リモートでサポートを受ける手順': 'https://www.youtube.com/watch?v=IfYRIYtvmpc',
+}
 const faqUrl = 'https://www.sanpai.com/support/faq.html'
 const emailSupportUrl = 'https://www.sanpai.com/support/support_form.html'
 const rentalUrl = 'https://www.sanpai.com/buy/rental.html'
@@ -72,7 +96,7 @@ const troubleGuides: Record<TroubleTopic, TroubleGuide> = {
   backup: {
     confirmation: 'バックアップについて、次の項目をご確認ください。',
     checklist: ['バックアップ先が接続され、空き容量があるか', 'バックアップの最終実行日時と完了状況', '必要なデータがバックアップ対象に含まれているか'],
-    videos: ['デイリーバックアップ設定方法', '自動バックアップの設定方法/メイン機のみ', '手動バックアップの取り方', 'クラウドバックアップ設定方法'],
+    videos: ['デイリーバックアップ設定方法', '自動バックアップの設定方法/メイン機のみ', '手動バックアップの取り方', 'クラウドバックアップ設定方法', 'ディリークラウドバックアップの設定について'],
   },
   manifest: {
     confirmation: 'マニフェストの入力・印刷について、次の項目をご確認ください。',
@@ -124,7 +148,7 @@ function MessageBubble({ message }: { message: ChatMessage }) {
             <ul className="flex flex-col gap-2">
               {message.videos.map((title) => (
                 <li key={title}>
-                  <a href={videoListUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-[#12658f] underline decoration-blue-200 underline-offset-2 hover:text-[#0b2d50] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2d50]">
+                  <a href={videoUrls[title] ?? videoListUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-[#12658f] underline decoration-blue-200 underline-offset-2 hover:text-[#0b2d50] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2d50]">
                     「{title}」
                   </a>
                 </li>
@@ -322,7 +346,7 @@ export function SupportChat() {
                 </a>
                 <div className="mt-2 flex flex-col gap-2">
                   <ResourceLink link={{ label: 'メールで問い合わせる', href: emailSupportUrl }} />
-                  <ResourceLink link={{ label: 'リモートサポートの手順を見る', href: videoListUrl }} />
+                  <ResourceLink link={{ label: 'リモートサポートの手順を見る', href: videoUrls['リモートでサポートを受ける手順'] }} />
                 </div>
               </div>
             )}
