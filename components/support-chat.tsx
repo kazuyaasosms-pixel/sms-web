@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, Headset, MessageCircle, Phone, RotateCcw, X } from 'lucide-react'
 
 type TroubleTopic = 'print' | 'login' | 'backup' | 'manifest' | 'billing' | 'annual'
-type Topic = TroubleTopic | 'other' | 'start' | 'troubleshoot' | 'consult' | 'pricing' | 'solved' | 'unsolved' | 'phone' | 'rental' | 'demo' | 'cases' | 'inquiry'
+type Topic = TroubleTopic | 'other' | 'start' | 'troubleshoot' | 'consult' | 'pricing' | 'solved' | 'unsolved' | 'phone' | 'rental' | 'demo' | 'cases'
 type LinkItem = { label: string; href: string }
 type ChatMessage = {
   id: number
@@ -25,7 +25,8 @@ type TroubleGuide = {
 const videoListUrl = 'https://www.sanpai.com/soft/sms_movie.html'
 const faqUrl = 'https://www.sanpai.com/support/faq.html'
 const emailSupportUrl = 'https://www.sanpai.com/support/support_form.html'
-const inquiryUrl = 'https://www.sanpai.com/buy/new_form.html'
+const rentalUrl = 'https://www.sanpai.com/buy/rental.html'
+const demoUrl = 'https://www.sanpai.com/buy/new_form.html'
 const caseStudiesUrl = 'https://www.sanpai.com/casestudies/'
 
 const initialMessage: ChatMessage = {
@@ -217,7 +218,6 @@ export function SupportChat() {
       addMessage('bot', '料金は、ご利用になるソフトと台数によって変わります。お電話かお問い合わせフォームで、お見積りをご案内しています。')
       setChoices([
         { label: '電話で聞きたい', topic: 'phone' },
-        { label: 'お問い合わせフォームで聞く', topic: 'inquiry' },
         returnChoice,
       ])
       return
@@ -246,7 +246,7 @@ export function SupportChat() {
     if (choice.topic === 'rental') {
       addMessage('bot', '無料貸出やお見積りは、専用フォームからご相談いただけます。')
       addMessage('bot', '申し込み・ご相談はこちらです。', {
-        links: [{ label: '無料貸出・お見積りフォームを見る', href: inquiryUrl }],
+        links: [{ label: '無料貸出について見る', href: rentalUrl }],
       })
       setChoices([returnChoice, { label: '電話で相談したい', topic: 'phone' }])
       return
@@ -255,7 +255,7 @@ export function SupportChat() {
     if (choice.topic === 'demo') {
       addMessage('bot', 'オンラインデモは、専用フォームからお申し込みいただけます。')
       addMessage('bot', '申し込みはこちらです。', {
-        links: [{ label: 'オンラインデモ申し込みフォームを見る', href: inquiryUrl }],
+        links: [{ label: 'オンラインデモ申し込みフォームを見る', href: demoUrl }],
       })
       setChoices([returnChoice, { label: '電話で相談したい', topic: 'phone' }])
       return
@@ -267,15 +267,6 @@ export function SupportChat() {
         links: [{ label: '導入事例を見る', href: caseStudiesUrl }],
       })
       setChoices([returnChoice, { label: '電話で相談したい', topic: 'phone' }])
-      return
-    }
-
-    if (choice.topic === 'inquiry') {
-      addMessage('bot', '無料デモ・お見積り・無料貸出のご相談フォームをご利用いただけます。')
-      addMessage('bot', 'フォームはこちらです。', {
-        links: [{ label: 'お見積り・ご相談フォームを見る', href: inquiryUrl }],
-      })
-      setChoices([returnChoice, { label: '電話で聞きたい', topic: 'phone' }])
       return
     }
 
