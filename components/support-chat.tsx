@@ -49,9 +49,28 @@ const videoUrls: Record<string, string> = {
 }
 const faqUrl = 'https://www.sanpai.com/support/faq.html'
 const emailSupportUrl = 'https://www.sanpai.com/support/support_form.html'
+const phoneSupportMessage = 'お電話でサポートします。受付時間内に、下のボタンからおかけください。サポートセンター TEL:073-488-4008（受付時間 9:00〜17:00）。お電話の際、リモートサポートで画面を見ながらご案内する場合があります。手順はかんたん動画「リモートでサポートを受ける手順」でも確認できます。'
+const afterHoursSupportMessage = '現在は受付時間外です。受付時間は平日9:00〜17:00です。メールフォームもご利用いただけます。'
 const rentalUrl = 'https://www.sanpai.com/buy/rental.html'
 const demoUrl = 'https://www.sanpai.com/buy/new_form.html'
 const caseStudiesUrl = 'https://www.sanpai.com/casestudies/'
+const supportTimeFormatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'Asia/Tokyo',
+  weekday: 'short',
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+})
+
+function isWithinSupportHours(date: Date) {
+  const parts = supportTimeFormatter.formatToParts(date)
+  const weekday = parts.find((part) => part.type === 'weekday')?.value
+  const hour = Number(parts.find((part) => part.type === 'hour')?.value)
+  const minute = Number(parts.find((part) => part.type === 'minute')?.value)
+  const minutesSinceMidnight = hour * 60 + minute
+
+  return weekday !== 'Sat' && weekday !== 'Sun' && minutesSinceMidnight >= 9 * 60 && minutesSinceMidnight < 17 * 60
+}
 
 const initialMessage: ChatMessage = {
   id: 0,
@@ -174,15 +193,36 @@ export function SupportChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([initialMessage])
   const [choices, setChoices] = useState<Choice[]>(mainChoices)
   const [showPhone, setShowPhone] = useState(false)
+  const [isSupportOpen, setIsSupportOpen] = useState(() => isWithinSupportHours(new Date()))
   const nextMessageId = useRef(1)
   const transcriptRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
+  const contactMessageIdRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    const updateSupportStatus = () => setIsSupportOpen(isWithinSupportHours(new Date()))
+    updateSupportStatus()
+    const intervalId = window.setInterval(updateSupportStatus, 60_000)
+    return () => window.clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    if (!showPhone || contactMessageIdRef.current === null) return
+    const contactMessageId = contactMessageIdRef.current
+    const contactMessage = isSupportOpen ? phoneSupportMessage : afterHoursSupportMessage
+
+    setMessages((current) => {
+      const currentMessage = current.find((message) => message.id === contactMessageId)
+      if (!currentMessage || currentMessage.text === contactMessage) return current
+      return current.map((message) => message.id === contactMessageId ? { ...message, text: contactMessage } : message)
+    })
+  }, [isSupportOpen, showPhone])
 
   useEffect(() => {
     const transcript = transcriptRef.current
     if (transcript) transcript.scrollTop = transcript.scrollHeight
-  }, [messages, choices, showPhone])
+  }, [messages, choices, showPhone, isSupportOpen])
 
   useEffect(() => {
     if (!open) return
@@ -203,11 +243,13 @@ export function SupportChat() {
     setMessages([initialMessage])
     setChoices(mainChoices)
     setShowPhone(false)
+    contactMessageIdRef.current = null
     nextMessageId.current = 1
   }
 
   function showContactOptions() {
-    addMessage('bot', 'お電話でサポートします。受付時間内に、下のボタンからおかけください。サポートセンター TEL:073-488-4008（受付時間 9:00〜17:00）。お電話の際、リモートサポートで画面を見ながらご案内する場合があります。手順はかんたん動画「リモートでサポートを受ける手順」でも確認できます。')
+    contactMessageIdRef.current = nextMessageId.current
+    addMessage('bot', isSupportOpen ? phoneSupportMessage : afterHoursSupportMessage)
     setShowPhone(true)
     setChoices([returnChoice])
   }
@@ -340,7 +382,7 @@ export function SupportChat() {
               <span className="flex size-10 items-center justify-center rounded-full bg-white/10"><Headset aria-hidden="true" className="size-5" /></span>
               <div>
                 <h2 id="support-chat-title" className="text-sm font-bold">SMSサポート</h2>
-                <p className="mt-0.5 flex items-center gap-1.5 text-xs text-blue-100"><span className="size-1.5 rounded-full bg-emerald-300" />サポート受付中</p>
+                <p className="mt-0.5 flex items-center gap-1.5 text-xs text-blue-100"><span aria-hidden="true" className={`size-1.5 rounded-full ${isSupportOpen ? 'bg-emerald-300' : 'bg-red-400'}`} />{isSupportOpen ? 'サポート受付中' : '受付時間外'}</p>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -358,10 +400,13 @@ export function SupportChat() {
               <div className="ml-9 mt-4 rounded-2xl border border-blue-100 bg-blue-50 p-4">
                 <p className="text-center text-xs font-medium text-slate-600">サポートセンター TEL:073-488-4008</p>
                 <p className="mt-1 text-center text-xs font-medium text-slate-600">受付時間 9:00〜17:00</p>
-                <a href="tel:0734884008" className="mt-3 flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-[#0b2d50] px-4 py-3 text-base font-bold text-white shadow-sm transition hover:bg-[#12436e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2d50]">
-                  <Phone aria-hidden="true" className="size-5" />
-                  電話をかける 073-488-4008
-                </a>
+                {!isSupportOpen && <p className="mt-3 text-center text-xs font-medium text-slate-600">{afterHoursSupportMessage}</p>}
+                {isSupportOpen && (
+                  <a href="tel:0734884008" className="mt-3 flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-[#0b2d50] px-4 py-3 text-base font-bold text-white shadow-sm transition hover:bg-[#12436e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2d50]">
+                    <Phone aria-hidden="true" className="size-5" />
+                    電話をかける 073-488-4008
+                  </a>
+                )}
                 <div className="mt-2 flex flex-col gap-2">
                   <ResourceLink link={{ label: 'メールで問い合わせる', href: emailSupportUrl }} />
                   <ResourceLink link={{ label: 'リモートサポートの手順を見る', href: videoUrls['リモートでサポートを受ける手順'] }} />
