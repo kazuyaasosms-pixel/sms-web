@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, Headset, MessageCircle, Phone, RotateCcw, X } from 'lucide-react'
 
 type TroubleTopic = 'print' | 'login' | 'backup' | 'manifest' | 'billing' | 'annual'
-type Topic = TroubleTopic | 'other' | 'start' | 'troubleshoot' | 'consult' | 'pricing' | 'solved' | 'unsolved' | 'phone' | 'rental' | 'demo' | 'cases'
+type Topic = TroubleTopic | 'other' | 'start' | 'troubleshoot' | 'consult' | 'pricing' | 'solved' | 'unsolved' | 'phone' | 'rental' | 'demo' | 'cases' | 'warrantyYes' | 'warrantyNo'
 type LinkItem = { label: string; href: string }
 type ChatMessage = {
   id: number
@@ -294,8 +294,26 @@ export function SupportChat() {
       return
     }
 
-    if (choice.topic === 'phone' || choice.topic === 'unsolved') {
+    if (choice.topic === 'unsolved') {
+      addMessage('bot', 'お電話の前に、保守契約について教えてください。')
+      setChoices([
+        { label: '保守契約をしている', topic: 'warrantyYes' },
+        { label: '保守契約をしていない', topic: 'warrantyNo' },
+      ])
+      return
+    }
+
+    if (choice.topic === 'phone' || choice.topic === 'warrantyYes') {
       showContactOptions()
+      return
+    }
+
+    if (choice.topic === 'warrantyNo') {
+      setShowPhone(false)
+      addMessage('bot', '保守契約をされていないお客様は、メールフォームからお問い合わせください。内容を確認のうえ、担当者よりご連絡いたします。', {
+        links: [{ label: 'メールで問い合わせる', href: emailSupportUrl }],
+      })
+      setChoices([returnChoice])
       return
     }
 
